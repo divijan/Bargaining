@@ -10,9 +10,9 @@ class GameRunner (agents: Vector[Agent], sum: Int = 50, numberOfGames: Int = 100
 	  
   def runOneGame (agent1: Agent, agent2: Agent): Division =
 	{
-	  val proposedDivision = agent1.propose(agent2, sum)
-	  assert(proposedDivision.forMe >= 0 && proposedDivision.forYou >= 0)
-	  if (agent2.accept(agent1,proposedDivision)) proposedDivision
+	  val Division(forMe,forYou) = agent1.propose(agent2, sum)
+	  //assert(forMe*forYou > 0 && forMe + forYou == sum)
+	  if (agent2.accept(agent1,Division(forMe,forYou))) Division(forMe,forYou)
 	  else Division(0,0)
 	}
   
