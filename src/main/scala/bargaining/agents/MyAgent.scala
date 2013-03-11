@@ -7,7 +7,7 @@ class MyAgent extends Agent {
   override val name: String = "John Smith"
     
   def propose (agent: Agent, sum: Int): Division =
-    Division(sum/2 + 1, sum/2 - 1)
+    Division(sum/2 + 1, sum - (sum/2 + 1))
     
   def accept (agent: Agent, div: Division): Boolean  = 
   {

@@ -8,7 +8,7 @@ class RandomBeaterAgent extends Agent {
     
   def propose (agent: Agent, sum: Int): Division =
     if (agent.name == "random")	Division(sum,0)
-	else Division(sum/2 + 1, sum/2 - 1)
+	else Division(sum/2 + 1, sum - (sum/2 + 1))
     
   def accept (agent: Agent, div: Division): Boolean = true  
 }
